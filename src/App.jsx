@@ -6,6 +6,8 @@ import Header from './components/header/Header';// Ensure this path is correct
 import Signup from './components/signup/Signup';
 import ForgetPassword from './components/signup/ForgetPassword';
 import ResetPassword from './components/signup/ResetPassword';
+import ChoosseDonor from './components/petdata/ChoosseDonor';
+import Donor from './components/petdata/Donor';
 function App() {
   return (
     <BrowserRouter>
@@ -15,6 +17,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/forgotPassword" element={<ForgetPassword />} />
         <Route path="/resetPassword" element={<ResetPassword />} />
+        <Route path="/chooseDonor" element={<ChoosseDonor />} />
+        <Route path="/donor" element={<Donor />} />
       </Routes>
     </BrowserRouter>
   );

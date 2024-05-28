@@ -4,12 +4,13 @@ body {
   padding: 0;
   font-family: sans-serif;
   letter-spacing: 2px;
-  margin-bottom: 100px !important;
+  margin-top: 70px !important;
 }
 
 /* navbar here */
 .navbar-container {
   position: fixed;
+  top: 0;
   width: 100%;
   z-index: 1;
 }
@@ -47,7 +48,7 @@ body {
   width: 768px;
   max-width: 100%;
   min-height: 530px;
-  top: 150px;
+  top: 16px;
 }
 
 .signup .container p {
@@ -240,11 +241,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .resetPassword{
   display: flex;
   align-items: center;
-  height: 100vh;
 }

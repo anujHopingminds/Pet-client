@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ResetPassword = () => {
   const { email } = useParams();
@@ -8,21 +11,35 @@ const ResetPassword = () => {
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
+ 
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!otp || !newPassword || !confirmPassword) {
       setError('All fields are required');
+      toast.error('All fields are required');
       return;
     }
     if (newPassword !== confirmPassword) {
       setError('Passwords do not match');
+      toast.error('Passwords do not match');
       return;
     }
-    // Here you can send a request to your backend to verify the OTP and reset the password
-    console.log('Email:', email);
-    console.log('OTP:', otp);
-    console.log('New Password:', newPassword);
+
+    try {
+      const response = await axios.post('http://localhost:8000/api/forgetPassword', {
+        email,
+        otp,
+        newPassword
+      });
+      toast.success('Password reset successful');
+      // Optionally, redirect the user to the login page or another page
+      
+    } catch (error) {
+      toast.error('Failed to reset password');
+      setError('Failed to reset password');
+    }
+
     // Reset the form fields
     setOTP('');
     setNewPassword('');
@@ -71,6 +88,7 @@ const ResetPassword = () => {
               Reset Password
             </Button>
           </Form>
+          <ToastContainer />
         </Col>
       </Row>
     </Container>

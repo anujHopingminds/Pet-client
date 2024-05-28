@@ -8,6 +8,8 @@ import FaqAccordion from './FaqAccordion';
 import AdoptionStories from './AdoptionStories';
 import TeamCarousel from './TeamCarousel';
 import TestimonialCarousel from './TestimonialCarousel';
+import BlogSection from './BlogSection';
+import Footer from './Footer';
 function Home() {
     return (
         <div>
@@ -19,6 +21,8 @@ function Home() {
             <AdoptionStories />
             <TeamCarousel />
             <TestimonialCarousel />
+            <BlogSection/>
+            <Footer/>
             {/* <Slider /> */}
         </div>
     )

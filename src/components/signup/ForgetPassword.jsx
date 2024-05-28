@@ -1,15 +1,29 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function ForgetPassword() {
   const [email, setEmail] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Navigate to the reset password page with the email as a URL parameter
-    navigate(`/resetPassword?${encodeURIComponent(email)}`);
+    if (!email) {
+      toast.error('Email is required');
+      return;
+    }
+
+    try {
+      await axios.post('http://localhost:8000/api/forgetPassword', { email });
+      toast.success('Password reset link sent to your email');
+      // Redirect to reset password page with email as a URL parameter
+      navigate(`/resetPassword?email=${encodeURIComponent(email)}`);
+    } catch (error) {
+      toast.error('Failed to send password reset link');
+    }
   };
 
   return (
@@ -32,6 +46,7 @@ function ForgetPassword() {
               Send Reset Link
             </Button>
           </Form>
+          <ToastContainer />
         </Col>
       </Row>
     </Container>
