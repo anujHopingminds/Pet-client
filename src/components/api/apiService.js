@@ -29,7 +29,7 @@ api.interceptors.response.use(
       // Handle error based on status code
       if (error.response.status === 401) {
         // Handle unauthorized error, e.g., redirect to login
-        window.location.href = '/login'; // Adjust based on your routing
+        window.location.href = '/signup'; // Adjust based on your routing
       }
     }
     return Promise.reject(error);

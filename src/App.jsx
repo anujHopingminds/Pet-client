@@ -8,6 +8,7 @@ import ForgetPassword from './components/signup/ForgetPassword';
 import ResetPassword from './components/signup/ResetPassword';
 import ChoosseDonor from './components/petdata/ChoosseDonor';
 import Donor from './components/petdata/Donor';
+import PetProfile from './components/petdata/PetProfile';
 function App() {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ function App() {
         <Route path="/resetPassword" element={<ResetPassword />} />
         <Route path="/chooseDonor" element={<ChoosseDonor />} />
         <Route path="/donor" element={<Donor />} />
+        <Route path="/petProfile" element={<PetProfile />} />
       </Routes>
     </BrowserRouter>
   );

@@ -4,8 +4,9 @@ import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import { post } from '../api/apiService';
 const Signup = () => {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     const [isActive, setIsActive] = useState(false);
     const [signupForm, setSignupForm] = useState({
         name: '',
@@ -52,7 +53,7 @@ const Signup = () => {
             return;
         }
         try {
-            const response = await axios.post('http://localhost:8000/api/register', signupForm); // Adjust endpoint as needed
+            const response = await post('/register', signupForm); // Adjust endpoint as needed
             if (response) {
                 toast.success('Signup successful');
                 navigate('/chooseDonor')
@@ -67,27 +68,25 @@ const Signup = () => {
     const handleLoginSubmit = async (e) => {
         e.preventDefault();
         console.log('Login form data:', loginForm); // Log form data for debugging
-     
-        try {
-            const response = await axios.post('http://localhost:8000/api/login', loginForm);
-            if(response){
-                localStorage.setItem('token', response.data.token);
-                toast.success('Login successful');
-                navigate('/chooseDonor')
-            }
-           
-            // Redirect to dashboard or another page
-        } catch (error) {
-            if (error.response) {
-                console.error('Error response:', error.response); // Log error response for debugging
-                toast.error(error.response.data); // Display server error message
-            } else {
-                console.error('Error message:', error.message); // Log error message for debugging
+
+        post('/login', loginForm)
+            .then(response => {
+                console.log(response.message, 'response');
+                if (response) {
+                    localStorage.setItem('token', response.data.token);
+                    toast.success('Login successful');
+                    navigate('/chooseDonor');
+                } else {
+                    toast.error('Login failed');
+                }
+            })
+            .catch(error => {
                 toast.error('Login failed');
-            }
-        }
+                console.log(error,'ooooooooooooooooooo');
+               
+            });
     };
-    
+
 
     return (
         <div className='signup'>
@@ -129,6 +128,7 @@ const Signup = () => {
                         </div>
                     </div>
                 </div>
+                <ToastContainer/>
             </div>
             {message && <p>{message}</p>}
         </div>
