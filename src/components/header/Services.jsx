@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -27,9 +26,9 @@ function Services() {
                 <div>
                   <h5 className="text-uppercase mb-3">{service.title}</h5>
                   {/* <p>Kasd dolor no lorem sit tempor at justo rebum rebum stet justo elitr dolor amet sit</p> */}
-                  <a className="text-primary text-uppercase" href="">
+                  {/* <a className="text-primary text-uppercase" href="">
                     Read More<i className="bi bi-chevron-right"></i>
-                  </a>
+                  </a> */}
                 </div>
               </Card>
             </Col>

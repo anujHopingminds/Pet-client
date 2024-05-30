@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { Form, Button, Container, Row, Col, Alert } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -49,12 +49,12 @@ const ResetPassword = () => {
 
   return (
     <Container>
-      <Row className="justify-content-md-center resetPassword">
+      <Row className="justify-content-md-center align-container resetPassword">
         <Col md="6">
           <h1 className="my-4">Reset Password</h1>
           {error && <Alert variant="danger">{error}</Alert>}
           <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicOTP">
+            <Form.Group className='mb-3' controlId="formBasicOTP">
               <Form.Label>OTP</Form.Label>
               <Form.Control
                 type="text"
@@ -64,7 +64,7 @@ const ResetPassword = () => {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="formBasicPassword">
+            <Form.Group className='mb-3' controlId="formBasicPassword">
               <Form.Label>New Password</Form.Label>
               <Form.Control
                 type="password"
@@ -74,7 +74,7 @@ const ResetPassword = () => {
                 required
               />
             </Form.Group>
-            <Form.Group controlId="formBasicConfirmPassword">
+            <Form.Group className='mb-3' controlId="formBasicConfirmPassword">
               <Form.Label>Confirm Password</Form.Label>
               <Form.Control
                 type="password"

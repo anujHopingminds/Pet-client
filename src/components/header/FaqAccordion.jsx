@@ -1,4 +1,3 @@
-import React from 'react';
 import { Accordion, Card, Button, Container } from 'react-bootstrap';
 
 function FaqAccordion() {

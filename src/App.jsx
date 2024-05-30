@@ -9,6 +9,9 @@ import ResetPassword from './components/signup/ResetPassword';
 import ChoosseDonor from './components/petdata/ChoosseDonor';
 import Donor from './components/petdata/Donor';
 import PetProfile from './components/petdata/PetProfile';
+import About from './components/header/About';
+import TeamCarousel from './components/header/TeamCarousel';
+import ProfileDetail from './components/petdata/ProfileDetail';
 function App() {
   return (
     <BrowserRouter>
@@ -21,6 +24,9 @@ function App() {
         <Route path="/chooseDonor" element={<ChoosseDonor />} />
         <Route path="/donor" element={<Donor />} />
         <Route path="/petProfile" element={<PetProfile />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/team" element={<TeamCarousel />} />
+        <Route path="/profileDetail/:id" element={<ProfileDetail />} />
       </Routes>
     </BrowserRouter>
   );

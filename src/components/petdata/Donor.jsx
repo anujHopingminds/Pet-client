@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col, Card, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import {post} from '../api/apiService'
+import { post } from '../api/apiService'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -49,7 +48,8 @@ function Donor() {
       });
 
       toast.success('Pet profile submitted successfully');
-      navigate('/petProfiles');
+      console.log(response.data.data._id,'oooo')
+      navigate(`/profileDetail/${response.data.data._id}`);
     } catch (error) {
       console.error('There was an error uploading the form data:', error);
       toast.error('Failed to submit pet profile');
@@ -58,7 +58,7 @@ function Donor() {
 
   return (
     <Container>
-      <Row className="justify-content-md-center petProfileForm">
+      <Row className="justify-content-md-center p-5 petProfileForm">
         <Col md="8">
           <Card className="p-4">
             <h1 className="text-center mb-4">Pet Profile Form</h1>

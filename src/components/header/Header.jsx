@@ -1,4 +1,3 @@
-import React from 'react';
 import { Navbar } from 'responsive-navbar-react';
 import 'responsive-navbar-react/dist/index.css';
 function Header() {
@@ -10,12 +9,12 @@ function Header() {
         link: '/'
       },
       {
-        text: 'Doc',
-        link: '#docs'
+        text: 'About',
+        link: '/about'
       },
       {
-        text: 'Custom',
-        link: '#custom-bar'
+        text: 'Team',
+        link: '/team'
       },
       {
         text: 'Contact',
@@ -23,7 +22,7 @@ function Header() {
       }
     ],
     logo: {
-      text: 'Responsive Navbar React'
+      text: "Pawsitive Star"
     },
     style: {
       barStyles: {

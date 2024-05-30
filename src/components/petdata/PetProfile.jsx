@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { get } from '../api/apiService';
 import { Container, Row, Col, Card, Form, Pagination } from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
 const PetProfile = () => {
   const [pets, setPets] = useState([]);
   const [totalPets, setTotalPets] = useState(0); // State to store the total number of pets
@@ -41,7 +41,7 @@ const PetProfile = () => {
   };
 
   return (
-    <Container className="mt-5">
+    <Container className="mt-5 p-5">
       <h1 className="text-center mb-4">Pet Profiles</h1>
       <Form className="mb-4">
         <Form.Control
@@ -53,15 +53,19 @@ const PetProfile = () => {
       </Form>
       <Row>
         {pets?.map((pet) => (
-          <Col md={4} key={pet._id} className="mb-4">
-            <Card className="h-100">
-              <Card.Img variant="top" src={pet.imageUrl} alt={pet.petName} />
-              <Card.Body>
-                <Card.Title>{pet.petName}</Card.Title>
-                <Card.Text>{pet.category}</Card.Text>
-              </Card.Body>
-            </Card>
-          </Col>
+         
+            <Col md={4} key={pet._id} className="mb-4">
+               <Link to={`/profileDetail/${pet._id}`}>
+              <Card className="h-100">
+                <Card.Img variant="top" src={pet.imageUrl} alt={pet.petName} />
+                <Card.Body>
+                  <Card.Title>{pet.petName}</Card.Title>
+                  <Card.Text>{pet.category}</Card.Text>
+                </Card.Body>
+              </Card>
+              </Link>
+            </Col>
+         
         ))}
       </Row>
       <div className="d-flex justify-content-center mt-4">
@@ -86,4 +90,3 @@ const PetProfile = () => {
 };
 
 export default PetProfile;
-    

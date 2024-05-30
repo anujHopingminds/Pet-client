@@ -1,4 +1,3 @@
-import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -48,7 +47,7 @@ const TestimonialCarousel = () => {
             <Carousel
               swipeable={true}
               draggable={true}
-              showDots={true}
+              // showDots={true}
               responsive={responsive}
               ssr={true}
               infinite={true}
@@ -63,7 +62,7 @@ const TestimonialCarousel = () => {
               itemClass="carousel-item-padding-40-px"
             >
               {testimonials.map((testimonial, index) => (
-                <div className="testimonial-item text-center" key={index}>
+                <div className="testimonial- text-center" key={index}>
                   <div className="position-relative mb-4">
                     <img className="img-fluid mx-auto" src={testimonial.imgSrc} alt="" />
                     <div

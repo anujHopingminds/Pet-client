@@ -1,11 +1,10 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
 function ChooseDonor() {
   return (
     <Container className="mt-5">
-      <Row className="justify-content-center">
+      <Row className="justify-content-center align-container">
         <Col md="6">
           <h1 className="text-center mb-4">Choose Method</h1>
           <ul className="list-unstyled">

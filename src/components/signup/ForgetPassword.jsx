@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -28,11 +28,11 @@ function ForgetPassword() {
 
   return (
     <Container>
-      <Row className="justify-content-md-center forgetPassword">
+      <Row className="justify-content-md-center align-container">
         <Col md="6">
           <h1 className="my-4">Forgot Password</h1>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
+          <Form  onSubmit={handleSubmit}>
+            <Form.Group className='mb-3' controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
               <Form.Control
                 type="email"
