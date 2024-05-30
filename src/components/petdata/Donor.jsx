@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Form, Button, Container, Row, Col, Card, Image } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -48,7 +49,6 @@ function Donor() {
       });
 
       toast.success('Pet profile submitted successfully');
-      console.log(response.data.data._id,'oooo')
       navigate(`/profileDetail/${response.data.data._id}`);
     } catch (error) {
       console.error('There was an error uploading the form data:', error);

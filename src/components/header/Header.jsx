@@ -17,7 +17,7 @@ function Header() {
         link: '/team'
       },
       {
-        text: 'Contact',
+        text: 'Login',
         link: '/signup'
       }
     ],
