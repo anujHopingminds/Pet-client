@@ -12,6 +12,7 @@ import PetProfile from './components/petdata/PetProfile';
 import About from './components/header/About';
 import TeamCarousel from './components/header/TeamCarousel';
 import ProfileDetail from './components/petdata/ProfileDetail';
+import Input from './components/header/Input';
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +28,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/team" element={<TeamCarousel />} />
         <Route path="/profileDetail/:id" element={<ProfileDetail />} />
+        <Route path="/input" element={<Input/>}/>
       </Routes>
     </BrowserRouter>
   );
