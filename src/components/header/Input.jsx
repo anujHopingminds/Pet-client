@@ -24,10 +24,46 @@ function Input() {
 
     const handlePriceChange = (e, tier) => {
         const updatedPrice = parseFloat(e.target.value) || 0;
-        setDiscountPrice((prevPrices) => ({
-            ...prevPrices,
-            [tier]: updatedPrice,
-        }));
+    
+        // Update the specific price tier
+        // setDiscountPrice((prevPrices) => ({
+        //     ...prevPrices,
+        //     [tier]: updatedPrice,
+        // }));
+    
+        // Calculate the discount percentage dynamically based on the new price
+        if (tier === "basic") {
+            const newDiscount = ((price.basic - updatedPrice) / price.basic) * 100;
+            setDiscount(newDiscount);
+    
+            // Update all discount prices based on the new discount
+            setDiscountPrice({
+                basic: updatedPrice,
+                standard: price.standard - (price.standard * newDiscount) / 100,
+                premium: price.premium - (price.premium * newDiscount) / 100,
+            });
+        }
+        if (tier === "standard") {
+            const newDiscount = ((price.standard - updatedPrice) / price.standard) * 100;
+            console.log(newDiscount,'newDiscount')
+            setDiscount(newDiscount);    
+            // Update all discount prices based on the new discount
+            setDiscountPrice({
+                basic: price.basic - (price.basic * newDiscount) / 100,
+                standard: updatedPrice,
+                premium: price.premium - (price.premium * newDiscount) / 100,
+            });
+        }
+        if (tier === "premium") {
+            const newDiscount = ((price.premium - updatedPrice) / price.premium) * 100;
+            setDiscount(newDiscount);    
+            // Update all discount prices based on the new discount
+            setDiscountPrice({
+                basic: price.basic - (price.basic * newDiscount) / 100,
+                standard: price.standard - (price.standard * newDiscount) / 100,
+                premium: updatedPrice,
+            });
+        }
     };
 
     return (
